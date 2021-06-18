@@ -1,7 +1,5 @@
 const db = require('../db/db.js')
 
-
-
 const registerUser = async (req, res, next) => {
     let uniqueID = await pID(req.user.name);
     const user = req.user
@@ -11,9 +9,11 @@ const registerUser = async (req, res, next) => {
 
         db.query(sql, function (err, result) {
             if (err) return err;
-            else return ('User Created')
+            else next()
         });
     } catch (err) {
+
+        res.status(500).send('Something is Wrong')
 
     }
 
@@ -21,7 +21,7 @@ const registerUser = async (req, res, next) => {
 }
 
 
-let pID = function (name) {
+let pID = async (name) => {
 
     return name.substr(0, 4) + Math.random().toString(36).substr(8, 9);
 }

@@ -3,6 +3,7 @@ const express = require('express')
 const mysql = require('mysql2')
 const validate = require('../validation/validateUserData.js')
 const registerUser = require('../middleware/registerUser.js')
+const login = require('../middleware/login.js')
 
 const router = new express.Router()
 
@@ -15,8 +16,15 @@ router.post('/', async (req, res) => {
 
 router.post('/register', validate, registerUser, async (req, res) => {
 
-
+    res.status(200).send('User Created')
 
 })
+
+router.post('/login', login, async (req, res) => {
+
+    res.status(200).send()
+
+})
+
 
 module.exports = router
