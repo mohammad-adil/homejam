@@ -1,0 +1,25 @@
+{
+  "name": "homejam",
+  "version": "0.0.1",
+  "description": "API for Class management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js -e js,hbs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohammad-adil/homejam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohammad-adil/homejam/issues"
+  },
+  "homepage": "https://github.com/mohammad-adil/homejam#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
