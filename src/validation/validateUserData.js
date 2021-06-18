@@ -3,12 +3,13 @@ const validator = require('validator')
 
 const validate = async (req, res, next) => {
     try {
-
         let result = await checkUser(req.body)
-        console.log(result)
+        req.user = req.body
+        next()
+
     } catch (err) {
 
-        console.log(err)
+        res.status(500).send(err)
 
     }
 
@@ -26,25 +27,19 @@ const checkUser = (data) => {
                 errors.phone = validator.isMobilePhone(data.phone);
             } catch (err) {
 
-                return reject('Internal Error')
+                return reject('500')
             }
 
         } else {
             return reject('All Fields are required')
         }
 
-        if (errors.email == "false" && errors.phone == "false") {
-            console.log(errors.email + ' ' + errors.phone)
-            return reject('Email || Password Validation error')
-
+        if ((errors.email == true) && (errors.phone == true)) {
+            return resolve(data)
 
         } else {
-            console.log("all well ")
+            return reject('Email || Password Data Type Mis Match')
         }
-
-
-        errors.data = data
-        return resolve(errors)
 
     })
 
