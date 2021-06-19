@@ -28,7 +28,7 @@ router.post('/login', login, async (req, res) => {
 })
 
 router.post('/createClass', createClass, async (req, res) => {
-
+    res.status(200).send('Class Created')
 
 })
 module.exports = router
