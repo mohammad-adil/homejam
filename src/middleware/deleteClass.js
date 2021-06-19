@@ -2,9 +2,6 @@ const db = require('../db/db.js')
 
 
 let deleteClass = async (req, res, next) => {
-
-
-
     let body = req.body
     console.log(body)
     try {
