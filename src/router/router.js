@@ -12,7 +12,7 @@ const router = new express.Router()
 
 router.post('/', async (req, res) => {
 
-    res.status(200).json({ msg: 'User created' });
+    res.status(200).json({ msg: 'HomeJam' });
 
 });
 
